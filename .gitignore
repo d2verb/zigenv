@@ -1,0 +1,4 @@
+versions/*
+!.gitkeep
+shims/zig
+VERSION
