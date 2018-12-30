@@ -1,1 +1,3 @@
-../execs/zigenv
+#!/bin/bash
+
+$ZIGENV_ROOT/execs/zigenv $@
