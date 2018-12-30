@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cat <<EOS
+Usage: zigenv <command> [<args>]
+Some useful zigenv commands are:
+   set         Change current zig version
+   install     Install a zig version
+   uninstall   Uninstall a specific zig version
+   version     Show the current zig version
+   versions    List all zig versions available to zigenv
+EOS

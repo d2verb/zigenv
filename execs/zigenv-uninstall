@@ -1,0 +1,33 @@
+#!/bin/bash
+set -eu
+
+VERSIONS=$(ls "$ZIGENV_ROOT/versions")
+
+if [ $# -eq 0 ]; then
+  echo "Usage: zigenv uninstall <version>"
+  echo "Uninstall zig versions:"
+  for version in $VERSIONS; do
+    echo "   $version"
+  done
+  exit 1
+fi
+
+for version in $VERSIONS; do
+  if [ $version = $1 ]; then
+    echo "Version $version found."
+    echo "Uninstall?[Y/n]"
+    read YN
+    case $(echo $YN | tr y Y) in
+      "" | Y*)
+        rm -rf $ZIGENV_ROOT/versions/$version
+        echo "Uninstalled."
+        ;;
+      *)
+        exit 0
+        ;;
+    esac
+    exit 0
+  fi
+done
+
+echo "Version $1 not found."

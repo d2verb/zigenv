@@ -1,0 +1,25 @@
+#!/bin/bash
+set -eu
+
+VERSIONS=$(ls "$ZIGENV_ROOT/versions")
+
+if [ $# -eq 0 ]; then
+  echo "Usage: zigenv set <version>"
+  echo "Installed zig versions:"
+  for version in $VERSIONS; do
+    echo "   $version"
+  done
+  exit 1
+fi
+
+for version in $VERSIONS; do
+  if [ $version = $1 ]; then
+    rm -f $ZIGENV_ROOT/shims/zig
+    ln -s $ZIGENV_ROOT/versions/$version/zig $ZIGENV_ROOT/shims/zig
+    echo $version > $ZIGENV_ROOT/VERSION
+    echo "Current version changed."
+    exit 0
+  fi
+done
+
+echo "Version $1 not found."

@@ -1,0 +1,64 @@
+#!/bin/bash
+set -eu
+
+URLS=$(curl -Lso- https://ziglang.org/download/ | egrep -o 'https://.*zig-linux-x86_64.*\.tar\.xz"' | sed 's/.$//')
+
+url2version() {
+  VERSION=$(echo $1 | grep -Po '/(builds|\d+\.\d+\.\d+)/')
+  echo ${VERSION:1:-1}
+}
+
+install() {
+  URL=$1
+  INSTALL_PATH=$ZIGENV_ROOT/versions/$(url2version $URL)
+  mkdir -p $INSTALL_PATH
+  pushd $INSTALL_PATH
+  wget $URL
+  TAR_FILE=$(ls)
+  tar xvf $TAR_FILE && rm $TAR_FILE
+  ZIG_DIR=$(ls)
+  mv $ZIG_DIR/* .
+  rm -rf $ZIG_DIR
+}
+
+if [ $# -eq 0 ]; then
+  echo "Usage: zigenv install <version>"
+  echo "Available zig versions:"
+  for url in $URLS; do
+    echo "   $(url2version $url)"
+  done
+  exit 1
+fi
+
+for url in $URLS; do
+  if [[ $url == */$1/* ]]; then
+    echo "Version $1 found. $url"
+    echo "Install this version? [Y/n]"
+    read YN
+    case $(echo $YN | tr y Y) in
+      "" | Y*)
+        echo "Installing..."
+
+        for version in $(ls $ZIGENV_ROOT/versions); do
+          if [ $version = $1 ]; then
+            echo "Version $version is already installed."
+            echo "Reinstall? [Y/n]"
+            read YN
+            case $(echo $YN | tr y Y) in
+              "" | Y*)
+                rm -rf $ZIGENV_ROOT/versions/$version
+                ;;
+              *)
+                exit 0
+                ;;
+            esac
+          fi
+        done
+
+        install $url
+        ;;
+      *)
+        ;;
+    esac
+  fi
+done
