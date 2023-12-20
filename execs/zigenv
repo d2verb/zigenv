@@ -5,35 +5,35 @@ export PATH=$ZIGENV_ROOT/execs:$PATH
 CURRENT_VERSION=$(cat $ZIGENV_ROOT/VERSION)
 
 if [ $# -eq 0 ]; then
-	exec zigenv-help
-	exit 0
+ exec zigenv-help
+ exit 0
 fi
 
 COMMAND=$1
 shift
 case $COMMAND in
-help)
-	exec zigenv-help
-	;;
-change)
-	exec zigenv-change "$@"
-	;;
-install)
-	exec zigenv-install "$@"
-	;;
-uninstall)
-	exec zigenv-uninstall "$@"
-	;;
-version)
-	echo $(cat "$ZIGENV_ROOT/VERSION")
-	;;
-versions)
-	for version in $(ls "$ZIGENV_ROOT/versions"); do
-		if [ "$version" = "$CURRENT_VERSION" ]; then
-			echo "* $version"
-		else
-			echo "  $version"
-		fi
-	done
-	;;
+  help)
+    exec zigenv-help
+    ;;
+  change)
+    exec zigenv-change "$@"
+    ;;
+  install)
+    exec zigenv-install "$@"
+    ;;
+  uninstall)
+    exec zigenv-uninstall "$@"
+    ;;
+  version)
+    echo $(cat "$ZIGENV_ROOT/VERSION")
+    ;;
+  versions)
+    for version in $(ls "$ZIGENV_ROOT/versions"); do
+      if [ "$version" = "$CURRENT_VERSION" ]; then
+         echo "* $version"
+      else
+         echo "  $version"
+      fi
+    done
+    ;;
 esac
