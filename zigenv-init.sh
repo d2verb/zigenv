@@ -32,10 +32,10 @@ append_zigenv_init() {
 choose_profile_file() {
 	case "$SHELL" in
 	*/bash)
-		[ -f "$HOME/.bash_profile" ] && echo "$HOME/.bash_profile" || echo "$HOME/.bashrc"
+		[ -f "$HOME/.bashrc" ] && echo "$HOME/.bashrc" || echo "$HOME/.bash_profile"
 		;;
 	*/zsh)
-		[ -f "$HOME/.zprofile" ] && echo "$HOME/.zprofile" || echo "$HOME/.zshrc"
+		[ -f "$HOME/.zshrc" ] && echo "$HOME/.zshrc" || echo "$HOME/.zprofile"
 		;;
 	*/fish)
 		echo "$HOME/.config/fish/config.fish"
