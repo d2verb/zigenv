@@ -2,14 +2,16 @@
 zigenv is a tool to manage multiple zig versions.
 
 ## Install
-```
-$ git clone https://github.com/d2verb/zigenv ~/.zigenv
-```
-Add the following to your .bash_profile or .bashrc.
-```
-export ZIGENV_ROOT=$HOME/.zigenv
-export PATH=$ZIGENV_ROOT/bin:$ZIGENV_ROOT/shims:$PATH
-```
+
+zigenv is installed by running one of the following commands in your terminal. 
+You can install this via the command-line with either `curl`, `wget` or another similar tool.
+
+| Method    | Command                                                                                           |
+| :-------- | :------------------------------------------------------------------------------------------------ |
+| **curl**  | `sh -c "$(curl -fsSL https://raw.githubusercontent.com/d2verb/zigenv/master/zigenv-init.sh)"` |
+| **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/d2verb/zigenv/master/zigenv-init..sh)"`   |
+| **fetch** | `sh -c "$(fetch -o - https://raw.githubusercontent.com/d2verb/zigenv/master/zigenv-init.sh)"` |
+
 ## Usage
 Install new zig version.
 ```
