@@ -1,8 +1,6 @@
 #!/bin/bash
 set -eu
 
-URLS=$(curl -Lso- https://ziglang.org/download/index.json | jq -r '.[] | ."x86_64-linux" | .tarball')
-
 url2version() {
   VERSION=$(echo $1 | grep -Po '/(builds|\d+\.\d+\.\d+)/')
   echo ${VERSION:1:-1}
@@ -29,6 +27,15 @@ if [ $# -eq 0 ]; then
   done
   exit 1
 fi
+
+# assume that the architecture is passed as second argument
+if [ -z ${2+x} ]; then
+	ARCH="x86_64-linux"
+else
+	ARCH=$2
+fi
+echo "Fetching versions for '${ARCH}' architecture"
+URLS=$(curl -Lso- https://ziglang.org/download/index.json | jq --arg jq_arch ${ARCH} -r '.[] | .[$jq_arch] | .tarball')
 
 for url in $URLS; do
   if [[ $url == */$1/* ]]; then
