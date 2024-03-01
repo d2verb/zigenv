@@ -8,9 +8,9 @@ You can install this via the command-line with either `curl`, `wget` or another 
 
 | Method    | Command                                                                                           |
 | :-------- | :------------------------------------------------------------------------------------------------ |
-| **curl**  | `sh -c "$(curl -fsSL https://raw.githubusercontent.com/d2verb/zigenv/master/zigenv-init.sh)"` |
-| **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/d2verb/zigenv/master/zigenv-init..sh)"`   |
-| **fetch** | `sh -c "$(fetch -o - https://raw.githubusercontent.com/d2verb/zigenv/master/zigenv-init.sh)"` |
+| **curl**  | `sh -c "$(curl -fsSL https://raw.githubusercontent.com/melhindi/zigenv/master/zigenv-init.sh)"` |
+| **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/melhindi/zigenv/master/zigenv-init..sh)"`   |
+| **fetch** | `sh -c "$(fetch -o - https://raw.githubusercontent.com/melhindi/zigenv/master/zigenv-init.sh)"` |
 
 ## Usage
 Install new zig version.
