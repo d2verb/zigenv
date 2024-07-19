@@ -8,9 +8,9 @@ You can install this via the command-line with either `curl`, `wget` or another 
 
 | Method    | Command                                                                                           |
 | :-------- | :------------------------------------------------------------------------------------------------ |
-| **curl**  | `sh -c "$(curl -fsSL https://raw.githubusercontent.com/melhindi/zigenv/master/zigenv-init.sh)" && . $HOME/zigenv/zigenv-init.sh && zigenv install 0.13.0 && zigenv change 0.13.0` |
-| **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/melhindi/zigenv/master/zigenv-init..sh)" && . $HOME/zigenv/zigenv-init.sh && zigenv install 0.13.0 && zigenv change 0.13.0`   |
-| **fetch** | `sh -c "$(fetch -o - https://raw.githubusercontent.com/melhindi/zigenv/master/zigenv-init.sh)" && . $HOME/zigenv/zigenv-init.sh && zigenv install 0.13.0 && zigenv change 0.13.0` |
+| **curl**  | `sh -c "$(curl -fsSL https://raw.githubusercontent.com/melhindi/zigenv/master/zigenv-init.sh)" && . $HOME/.zigenv/zigenv-init.sh && zigenv install 0.13.0 && zigenv change 0.13.0` |
+| **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/melhindi/zigenv/master/zigenv-init..sh)" && . $HOME/.zigenv/zigenv-init.sh && zigenv install 0.13.0 && zigenv change 0.13.0`   |
+| **fetch** | `sh -c "$(fetch -o - https://raw.githubusercontent.com/melhindi/zigenv/master/zigenv-init.sh)" && . $HOME/.zigenv/zigenv-init.sh && zigenv install 0.13.0 && zigenv change 0.13.0` |
 
 ## Usage
 Install new zig version.
