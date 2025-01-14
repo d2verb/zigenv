@@ -1,3 +1,6 @@
+> [!WARNING]
+> This repository is no longer maintained. You can use [zvm](https://github.com/tristanisham/zvm) or other tools to manage your Zig versions nowadays.
+
 ## What's this?
 zigenv is a tool to manage multiple zig versions.
 
